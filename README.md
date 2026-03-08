@@ -15,3 +15,5 @@ This script is primarily intended for testing local attack hitboxes or replicati
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+:)
