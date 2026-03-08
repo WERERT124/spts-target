@@ -146,7 +146,6 @@ local function stopFollowing()
 end
 
 local function startFollowing()
-	-- 支援從 TextBox 讀取多個玩家
 	targetPlayers = {}
 	local inputNames = string.split(TextBox.Text, ",")
 	for _, name in ipairs(inputNames) do
@@ -184,16 +183,16 @@ local function startFollowing()
 
 		if not localRoot then return end
 
-		-- 遍歷所有選取的玩家，將他們的判定框拉到你身上
+		
 		for _, targetPlayer in ipairs(targetPlayers) do
 			local targetCharacter = targetPlayer.Character
 			local targetRoot = targetCharacter and targetCharacter:FindFirstChild("HumanoidRootPart")
 
 			if targetRoot then
-				-- 將他們的 CFrame 覆蓋為你的前方 (或直接重疊: localRoot.CFrame)
+				
 				targetRoot.CFrame = localRoot.CFrame + localRoot.CFrame.LookVector * 2
 				
-				-- 建議關閉目標的碰撞，防止多個角色擠在同一個點導致物理引擎把他們(或你)彈飛
+				
 				targetRoot.CanCollide = false
 			end
 		end
@@ -207,5 +206,6 @@ end)
 StopButton.MouseButton1Click:Connect(function()
 	stopFollowing()
 end)
+
 
 updatePlayerList()
